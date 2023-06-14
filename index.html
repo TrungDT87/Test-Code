@@ -109,7 +109,7 @@
 
 </head>  
 
-<body onload="loadTitle()">    
+<body onload="displayUserName()">    
 <header>            
 	<button onclick="darkMode()" type="button">Change Theme</button>
 	<div id="digital-clock" style= "font-size:20px; float: right;"></div>
@@ -124,7 +124,28 @@
 	</nav>
 	<form>         
 		<input type="text" name="user_name" placeholder="Enter your name!">         
-		<button type="Submit">Apply!</button>       
+		<button type="Submit" >Apply!</button> 
+		<script>
+		function setUserName() {
+        var userName = document.getElementById("userName").value;
+        localStorage.setItem("userName", userName);
+        location.reload();
+    }
+
+    function getUserName() {
+        var userName = localStorage.getItem("userName");
+        return userName;
+    }
+
+    function displayUserName() {
+        var userName = getUserName();
+        if (userName) {
+            document.getElementById("helloText").textContent = "Hello, " + userName;
+        } else {
+            document.getElementById("helloText").textContent = "Hello, world";
+        }
+    }
+	</script>
 	</form>
 	</br>
  <main> 
