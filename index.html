@@ -45,22 +45,6 @@
         document.getElementById("digital-clock").innerHTML = currentTime;
     }, 1000);
 </script>
-
-<script>
-    function Submit() {
-      let name = document.getElementById("txtname").value;
-      window.location.href = "secondpage.html?" + name;
-    }
-</script>
-<script>
-  function loadTitle() {
-
-    let queryString = window.location.search.split('?')[1];
-    
-    document.write("<h2>Hello "+queryString+"</h2>")
-    document.title = "hello "+queryString;
-  }
-</script>
 	
 <script> // hàm xử lý tác vụ khi ấn vào button hiển thị div (gồm thẻ "img" và "p")
 	function showOne(id) {
