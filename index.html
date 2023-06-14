@@ -109,7 +109,7 @@
 
 </head>  
 
-<body onload="displayUserName()">    
+<body onload="titleChange()">    
 <header>            
 	<button onclick="darkMode()" type="button">Change Theme</button>
 	<div id="digital-clock" style= "font-size:20px; float: right;"></div>
@@ -127,6 +127,9 @@
 		<input type="text" id="userName" name="user_name" placeholder="Enter your name!">         
 		<button type="Submit" onclick="setUserName()" >Apply!</button> 
 		<script>
+			function titleChange() {
+    		document.title = document.getElementById("newTitle").value;
+	}
 		function setUserName() {
         		var userName = document.getElementById("userName").value;
         		localStorage.setItem("userName", userName);
