@@ -1,18 +1,29 @@
-<!DOCTYPE html><html>  
+<!DOCTYPE html>
+<html lang="en">
 <head>    
-<meta charset="utf-8">    
-<title>Assignment 3: Web Page Instructions</title>    
+<meta charset="UTF-8">   
+<title id="pageTitle">Assignment 3: Web Page Instructions</title>    
 <link rel="stylesheet" href="base.css">    
 
-<script> //hàm thay đổi theme dark hoặc light
-	var isOn = false;
-	function darkMode () {
-    document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
-    isOn = !isOn;
-}
-</script>
+<script>  
+	var isOn = localStorage.getItem('darkMode') === 'true';	//Kiểm tra trong local có tồn tại giá trị theme không -> không có trả false
+  
+	function darkMode() {  //hàm thay đổi theme dark hoặc light
+	  document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
+	  isOn = !isOn;
+  
+	  localStorage.setItem('darkMode', isOn); // Lưu giá trị vào localStorage
+	}
+  
+	// Kiểm tra giá trị đã lưu trong localStorage cho mỗi lần reload lại trang
+	if (isOn) {
+	  document.documentElement.setAttribute('data-theme', 'dark');
+	}
+  </script>
+  
 
 <script> // hàm hiển thị ngày giờ hiện tại khi truy cập website
+	// Thay đổi nội dung của phần tử <title>
 	function getDateTime() {
         var now     = new Date(); 
         var year    = now.getFullYear();
@@ -124,12 +135,26 @@
 	</nav>
 	<form> 
 		<input type="text" id="userName" name="user_name" placeholder="Enter your name!">         
-		<button type="Submit" onclick="titleChange()" >Apply!</button> 
+		<button type="submit" onclick="titleChange(event)" >Apply!</button> 
 		<script>
-		function titleChange() {
-    			document.title = document.getElementById("newTitle").value;
-	}
-		</script>
+    		const titleElement = document.getElementById('pageTitle'); //Trỏ tới head HTML
+			const defaultTitle = "Hello"	//Biến đại diện mặc định tiêu đề
+  			function titleChange(event) { //Hàm thực hiện thay đổi head HTML
+    			event.preventDefault(); // Tránh reload trang
+    			const inputElement = document.getElementById('userName');   //Trỏ tới input
+   				const inputValue = inputElement.value;  //Lấy giá trị input sau khi submit
+
+    			titleElement.textContent = defaultTitle + ":" + inputValue;   //Gán text của head HTML bằng đoạn chuỗi tiêu đề mặc định + với giá trị được nhập
+				localStorage.setItem('savedValue', inputValue); // Lưu giá trị vào localStorage
+				inputElement.value = ""; // Xoá giá trị vừa nhập
+
+  			}
+			// Kiểm tra nếu có giá trị được lưu trong localStorage cho mỗi lần reload trang
+  			const savedValue = localStorage.getItem('savedValue');
+  			if (savedValue) {
+    			titleElement.textContent = defaultTitle + ":" + savedValue;
+  			}
+</script>
 	</form>
 	</br>
  <main> 
