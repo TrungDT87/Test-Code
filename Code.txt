@@ -1,0 +1,211 @@
+<!DOCTYPE html><html>  
+<head>    
+<meta charset="utf-8">    
+<title>Assignment 3: Web Page Instructions</title>    
+<link rel="stylesheet" href="base.css">    
+
+<script> //hàm thay đổi theme dark hoặc light
+	var isOn = false;
+	function darkMode () {
+    document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
+    isOn = !isOn;
+
+}
+</script>
+
+<script> // hàm hiển thị ngày giờ hiện tại khi truy cập website
+	function getDateTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        var second  = now.getSeconds(); 
+        if(month.toString().length == 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length == 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length == 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length == 1) {
+             minute = '0'+minute;
+        }
+        if(second.toString().length == 1) {
+             second = '0'+second;
+        }   
+        var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
+         return dateTime;
+    }   
+    // example usage: realtime clock
+    setInterval(function(){
+        currentTime = getDateTime();
+        document.getElementById("digital-clock").innerHTML = currentTime;
+    }, 1000);
+</script>
+
+<script>
+      function loadTitle() {
+        const queryString = window.location.search;
+        const name = new URLSearchParams(queryString).get("name");
+        document.body.innerHTML = "<h2>Hello " + name + "</h2>";
+        document.title = "hello " + name;
+      }
+    </script>
+
+<script> // hàm xử lý tác vụ khi ấn vào button hiển thị div (gồm thẻ "img" và "p")
+	function showOne(id) {
+		document.querySelectorAll(".hide").forEach(function (el) {
+		el.style = "display: none;";
+		});
+		document.querySelector(".show[id='jgtshow']").style = "display: none;";
+		document.querySelector(".hide[id='" + id + "']").style = "display: block;";
+};
+</script>
+
+<style type="text/css"> 
+    :root, [data-theme="light"] {
+        --primary-color: #0000FF;
+        --secondary-color: #CC66CC;
+        --bg-color: #FFFFFF;
+        --font-color: #000000;
+        --heading-color:#800000;
+        --nav-color:#DDDDDD;
+    }
+    [data-theme="dark"] {
+        --primary-color: #ff5e00;
+        --secondary-color: #99FFCC;
+        --bg-color: #555555;
+        --font-color: #FFFFFF;
+        --heading-color:#FF9933;
+        --nav-color:#669999;
+    }
+	body {
+		padding: 25px;
+		background: var(--bg-color);
+		color: var(--font-color);
+		font-size: 25px;
+}
+	h2 {
+    	color: var(--heading-color);
+    }
+    h3 {
+    	color: var(--secondary-color);
+    }
+	nav{
+         background:var(--nav-color);
+        }
+    nav li{
+            display:inline-block;
+            padding:10px;
+            margin-left: auto; 
+            margin-right: auto;
+            font-size:20px;
+            color:#0066CC;
+            text-decoration:none;
+        }
+     nav a {
+     		text-decoration:none;
+     }
+     nav a:hover{
+            color: var(--font-color);
+        }
+	.hide {display: none;}  
+	img {display: block; margin-left: auto; margin-right: auto;}
+</style>
+
+</head>  
+
+<body>    
+<header>            
+	<button onclick="darkMode()" type="button">Change Theme</button>
+    <div id="digital-clock" style= "font-size:20px; float: right;"></div>
+</header>
+<nav style= "text-align: center;">     
+ <ul>       <li><a href="#">HOME</a></li>        
+			<li><a href="#">OUR TEAM</a></li>       
+			<li><a href="#">PROJECTS</a></li>        
+			<li><a href="#">CONTACT</a></li>      
+</ul> 
+
+</nav>
+	<form>         
+		<input type="text" name="user_name" placeholder="Enter your name!">         
+		<button type="submit">Apply!</button>       
+	</form>
+	</br>
+ <main> 
+  <div class='show' id="jgtshow" style= text-align:center;>
+    <img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
+    <p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
+    </div>
+  <div class='hide' id="jgt" style= text-align:center;>
+    <img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
+    <p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
+  </div>
+  <div class='hide' id="ct" style= "text-align:center;">
+    <img src="https://live.staticflickr.com/1227/1155226271_39aa31cf4d_b.jpg">
+    <p>Ceiba is a genus of trees in the family Malvaceae, native to tropical and subtropical areas of the Americas (from Mexico and the Caribbean to N Argentina) and tropical West Africa.[2] Some species can grow to 70 m (230 ft) tall or more, with a straight, largely branchless trunk that culminates in a huge, spreading canopy, and buttress roots that can be taller than a grown person. The best-known, and most widely cultivated, species is Kapok, Ceiba pentandra, one of several trees known as kapok.</p>
+  </div>
+  <div class='hide' id="aot" style= "text-align:center;">
+    <img src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg">
+    <p>The Olive tree of Vouves is an olive tree in the village of Ano Vouves in the municipal unit of Kolymvari in Chania regional unit, Crete, Greece. Probably one of the oldest olive trees in the world, it still produces olives today.</p>
+  </div>
+  <div class='hide' id="pt" style= "text-align:center;">
+    <img src="https://live.staticflickr.com/3118/2431912955_f1efb765aa_b.jpg">
+    <p>The Arecaceae is a family of perennial, flowering plants in the monocot order Arecales. Their growth form can be climbers, shrubs, tree-like and stemless plants, all commonly known as palms. Those having a tree-like form are called palm trees.</p>
+  </div>
+  <div class='hide' id="man" style= "text-align:center;">
+    <img src="https://live.staticflickr.com/7099/6968551938_8960080fd9_b.jpg">
+    <p>A mangrove is a shrub or tree that grows in coastal saline or brackish water. The term is also used for tropical coastal vegetation consisting of such species. Mangroves are taxonomically diverse, as a result of convergent evolution in several plant families.</p>
+  </div>
+  
+    </br>
+    
+  <div style= text-align:center;>
+    <button type="button" onclick="showOne('jgt')"> Japanese Garden Trees </button>
+    
+    <button type="button" onclick="showOne('ct')"> Ceiba Tree </button>
+    
+    <button type="button" onclick="showOne('aot')"> Ancient Olive Trees </button>
+    
+    <button type="button" onclick="showOne('pt')"> Palm Tree </button>
+   
+    <button type="button" onclick="showOne('man')"> Mangroves </button>
+    
+  </div>
+
+ <article>        
+	<h2>Article heading</h2>        
+		<p>Lorem ipsum dolor sit amet</p>        
+	<h3>Subsection</h3>        
+		<p>Donec ut librero sed accu vehicula ultricies a non tortor.</p>   
+		<p>Pelientesque auctor nisi id magna consequat sagittis.</p>        
+	<h3>Another subsection</h3>        
+		<p>Donec viverra mi quis quam pulvinar at malesuada arcu rhoncus. </p>        
+		<p>Vivamus fermentum semper porta. Nunc diam velit, adipscing ut tristique vitae sagittis vel odio.</p>      
+</article>      
+<aside>        
+	<h2>Related</h2>        
+		<ul>          
+			<li><a href="#">Oh I do like to be beside the seaside</a></li>          
+			<li><a href="#">Oh I do like to be beside the sea</a></li>          
+			<li><a href="#">Although in the North of England</a></li>          
+			<li><a href="#">It never stops raining</a></li>          
+			<li><a href="#">Oh well...</a></li>        
+		</ul>      
+</aside>    
+</main>    
+
+<footer>      
+	<p>©Copyright 2023 by Duc Minh. All rights reversed.</p>    
+</footer>  
+</body></html>
+
+
+
+
+
