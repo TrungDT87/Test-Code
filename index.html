@@ -9,7 +9,6 @@
 	function darkMode () {
     document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
     isOn = !isOn;
-
 }
 </script>
 
@@ -122,61 +121,54 @@
 <body>    
 <header>            
 	<button onclick="darkMode()" type="button">Change Theme</button>
-    <div id="digital-clock" style= "font-size:20px; float: right;"></div>
+	<div id="digital-clock" style= "font-size:20px; float: right;"></div>
 </header>
-<nav style= "text-align: center;">     
- <ul>       <li><a href="#">HOME</a></li>        
-			<li><a href="#">OUR TEAM</a></li>       
-			<li><a href="#">PROJECTS</a></li>        
-			<li><a href="#">CONTACT</a></li>      
-</ul> 
+	<nav style= "text-align: center;">     
+ 		<ul>       	<li><a href="#">HOME</a></li>        
+				<li><a href="#">OUR TEAM</a></li>       
+				<li><a href="#">PROJECTS</a></li>        
+				<li><a href="#">CONTACT</a></li>      
+		</ul> 
 
-</nav>
+	</nav>
 	<form>         
 		<input type="text" name="user_name" placeholder="Enter your name!">         
 		<button type="submit">Apply!</button>       
 	</form>
 	</br>
  <main> 
-  <div class='show' id="jgtshow" style= text-align:center;>
-    <img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
-    <p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
-    </div>
-  <div class='hide' id="jgt" style= text-align:center;>
-    <img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
-    <p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
-  </div>
-  <div class='hide' id="ct" style= "text-align:center;">
-    <img src="https://live.staticflickr.com/1227/1155226271_39aa31cf4d_b.jpg">
-    <p>Ceiba is a genus of trees in the family Malvaceae, native to tropical and subtropical areas of the Americas (from Mexico and the Caribbean to N Argentina) and tropical West Africa.[2] Some species can grow to 70 m (230 ft) tall or more, with a straight, largely branchless trunk that culminates in a huge, spreading canopy, and buttress roots that can be taller than a grown person. The best-known, and most widely cultivated, species is Kapok, Ceiba pentandra, one of several trees known as kapok.</p>
-  </div>
-  <div class='hide' id="aot" style= "text-align:center;">
-    <img src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg">
-    <p>The Olive tree of Vouves is an olive tree in the village of Ano Vouves in the municipal unit of Kolymvari in Chania regional unit, Crete, Greece. Probably one of the oldest olive trees in the world, it still produces olives today.</p>
-  </div>
-  <div class='hide' id="pt" style= "text-align:center;">
-    <img src="https://live.staticflickr.com/3118/2431912955_f1efb765aa_b.jpg">
-    <p>The Arecaceae is a family of perennial, flowering plants in the monocot order Arecales. Their growth form can be climbers, shrubs, tree-like and stemless plants, all commonly known as palms. Those having a tree-like form are called palm trees.</p>
-  </div>
-  <div class='hide' id="man" style= "text-align:center;">
-    <img src="https://live.staticflickr.com/7099/6968551938_8960080fd9_b.jpg">
-    <p>A mangrove is a shrub or tree that grows in coastal saline or brackish water. The term is also used for tropical coastal vegetation consisting of such species. Mangroves are taxonomically diverse, as a result of convergent evolution in several plant families.</p>
-  </div>
-  
-    </br>
-    
-  <div style= text-align:center;>
-    <button type="button" onclick="showOne('jgt')"> Japanese Garden Trees </button>
-    
-    <button type="button" onclick="showOne('ct')"> Ceiba Tree </button>
-    
-    <button type="button" onclick="showOne('aot')"> Ancient Olive Trees </button>
-    
-    <button type="button" onclick="showOne('pt')"> Palm Tree </button>
-   
-    <button type="button" onclick="showOne('man')"> Mangroves </button>
-    
-  </div>
+  	<div class='show' id="jgtshow" style= text-align:center;>
+    		<img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
+    		<p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
+    	</div>
+  	<div class='hide' id="jgt" style= text-align:center;>
+    		<img src="https://live.staticflickr.com/5505/10517564194_c98c355387_b.jpg">
+    		<p>Japanese maples, black pines, and classic cherry blossom trees are just a few recommended trees you can grow in your Japanese garden. Thankfully, they are all reasonably simple to cultivate across various USDA hardiness zones – let’s take a look at a few.</p>
+  	</div>
+  	<div class='hide' id="ct" style= "text-align:center;">
+    		<img src="https://live.staticflickr.com/1227/1155226271_39aa31cf4d_b.jpg">
+    		<p>Ceiba is a genus of trees in the family Malvaceae, native to tropical and subtropical areas of the Americas (from Mexico and the Caribbean to N Argentina) and tropical West Africa.[2] Some species can grow to 70 m (230 ft) tall or more, with a straight, largely branchless trunk that culminates in a huge, spreading canopy, and buttress roots that can be taller than a grown person. The best-known, and most widely cultivated, species is Kapok, Ceiba pentandra, one of several trees known as kapok.</p>
+  	</div>
+  	<div class='hide' id="aot" style= "text-align:center;">
+    		<img src="https://live.staticflickr.com/2426/3795866926_834c167b24_b.jpg">
+    		<p>The Olive tree of Vouves is an olive tree in the village of Ano Vouves in the municipal unit of Kolymvari in Chania regional unit, Crete, Greece. Probably one of the oldest olive trees in the world, it still produces olives today.</p>
+  	</div>
+  	<div class='hide' id="pt" style= "text-align:center;">
+    		<img src="https://live.staticflickr.com/3118/2431912955_f1efb765aa_b.jpg">
+    		<p>The Arecaceae is a family of perennial, flowering plants in the monocot order Arecales. Their growth form can be climbers, shrubs, tree-like and stemless plants, all commonly known as palms. Those having a tree-like form are called palm trees.</p>
+  	</div>
+  	<div class='hide' id="man" style= "text-align:center;">
+    		<img src="https://live.staticflickr.com/7099/6968551938_8960080fd9_b.jpg">
+    		<p>A mangrove is a shrub or tree that grows in coastal saline or brackish water. The term is also used for tropical coastal vegetation consisting of such species. Mangroves are taxonomically diverse, as a result of convergent evolution in several plant families.</p>
+  	</div>
+    	</br>
+  	<div style= text-align:center;>
+    		<button type="button" onclick="showOne('jgt')"> Japanese Garden Trees </button>
+    		<button type="button" onclick="showOne('ct')"> Ceiba Tree </button>
+    		<button type="button" onclick="showOne('aot')"> Ancient Olive Trees </button>
+    		<button type="button" onclick="showOne('pt')"> Palm Tree </button>
+    		<button type="button" onclick="showOne('man')"> Mangroves </button>
+  	</div>
 
  <article>        
 	<h2>Article heading</h2>        
