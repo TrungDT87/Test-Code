@@ -46,22 +46,6 @@
     }, 1000);
 </script>
 
-<script>
-        function loadTitle() {
-            const queryString = window.location.search;
-            const name = new URLSearchParams(queryString).get("name");
-            if (name) {
-                document.body.innerHTML = "<h2>Hello " + name + "</h2>";
-                document.title = "Hello " + name;
-            }
-        }
-        document.body.onload = loadTitle;
-
-        function Submit() {
-            let name = document.getElementById("titletxt").value;
-            window.location.search = "?name=" + name;
-        }
-</script>
 
 <script> // hàm xử lý tác vụ khi ấn vào button hiển thị div (gồm thẻ "img" và "p")
 	function showOne(id) {
