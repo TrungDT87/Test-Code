@@ -122,33 +122,31 @@
 		</ul> 
 
 	</nav>
-	<form>         
-		<input type="text" name="user_name" placeholder="Enter your name!">         
-		<button type="Submit" >Apply!</button> 
+	<form> 
 		<span id="helloText"></span>
-<input type="text" id="userName" name="userName">
-<button onclick="setUserName()">Set Name</button>
+		<input type="text" id="userName" name="user_name" placeholder="Enter your name!">         
+		<button type="Submit" onclick="setUserName()" >Apply!</button> 
 		<script>
 		function setUserName() {
-        var userName = document.getElementById("userName").value;
-        localStorage.setItem("userName", userName);
-        location.reload();
-    }
+        		var userName = document.getElementById("userName").value;
+        		localStorage.setItem("userName", userName);
+        		location.reload();
+    	}
 
-    function getUserName() {
-        var userName = localStorage.getItem("userName");
-        return userName;
-    }
+        	function getUserName() {
+        		var userName = localStorage.getItem("userName");
+        		return userName;
+    	}
 
-    function displayUserName() {
-        var userName = getUserName();
-        if (userName) {
-            document.getElementById("helloText").textContent = "Hello, " + userName;
-        } else {
-            document.getElementById("helloText").textContent = "Hello, world";
+    		function displayUserName() {
+        		var userName = getUserName();
+        		if (userName) {
+            		document.getElementById("helloText").textContent = "Hello, " + userName;
+        } 		else {
+            		document.getElementById("helloText").textContent = "Hello, world";
         }
     }
-	</script>
+		</script>
 	</form>
 	</br>
  <main> 
