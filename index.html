@@ -130,25 +130,6 @@
 			function titleChange() {
     		document.title = document.getElementById("newTitle").value;
 	}
-		function setUserName() {
-        		var userName = document.getElementById("userName").value;
-        		localStorage.setItem("userName", userName);
-        		location.reload();
-    	}
-
-        	function getUserName() {
-        		var userName = localStorage.getItem("userName");
-        		return userName;
-    	}
-
-    		function displayUserName() {
-        		var userName = getUserName();
-        		if (userName) {
-            		document.getElementById("helloText").textContent = "Hello, " + userName;
-        } 		else {
-            		document.getElementById("helloText").textContent = "Hello, world";
-        }
-    }
 		</script>
 	</form>
 	</br>
