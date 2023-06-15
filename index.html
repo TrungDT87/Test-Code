@@ -4,69 +4,6 @@
 <meta charset="UTF-8">   
 <title id="pageTitle">Assignment 3: Web Page Instructions</title>    
 <link rel="stylesheet" href="base.css">    
-
-<script>  
-	var isOn = localStorage.getItem('darkMode') === 'true';	//Kiểm tra trong local có tồn tại giá trị theme không -> không có trả false
-  
-	function darkMode() {  //hàm thay đổi theme dark hoặc light
-	  document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
-	  isOn = !isOn;
-  
-	  localStorage.setItem('darkMode', isOn); // Lưu giá trị vào localStorage
-	}
-  
-	// Kiểm tra giá trị đã lưu trong localStorage cho mỗi lần reload lại trang
-	if (isOn) {
-	  document.documentElement.setAttribute('data-theme', 'dark');
-	}
-  </script>
-  
-
-<script> // hàm hiển thị ngày giờ hiện tại khi truy cập website
-	// Thay đổi nội dung của phần tử <title>
-	function getDateTime() {
-        var now     = new Date(); 
-        var year    = now.getFullYear();
-        var month   = now.getMonth()+1; 
-        var day     = now.getDate();
-        var hour    = now.getHours();
-        var minute  = now.getMinutes();
-        var second  = now.getSeconds(); 
-        if(month.toString().length == 1) {
-             month = '0'+month;
-        }
-        if(day.toString().length == 1) {
-             day = '0'+day;
-        }   
-        if(hour.toString().length == 1) {
-             hour = '0'+hour;
-        }
-        if(minute.toString().length == 1) {
-             minute = '0'+minute;
-        }
-        if(second.toString().length == 1) {
-             second = '0'+second;
-        }   
-        var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
-         return dateTime;
-    }   
-    // example usage: realtime clock
-    setInterval(function(){
-        currentTime = getDateTime();
-        document.getElementById("digital-clock").innerHTML = currentTime;
-    }, 1000);
-</script>
-	
-<script> // hàm xử lý tác vụ khi ấn vào button hiển thị div (gồm thẻ "img" và "p")
-	function showOne(id) {
-		document.querySelectorAll(".hide").forEach(function (el) {
-		el.style = "display: none;";
-		});
-		document.querySelector(".show[id='jgtshow']").style = "display: none;";
-		document.querySelector(".hide[id='" + id + "']").style = "display: block;";
-};
-</script>
-
 <style type="text/css"> 
     :root, [data-theme="light"] {
         --primary-color: #0000FF;
@@ -97,10 +34,10 @@
     	color: var(--secondary-color);
     }
 	nav{
-         background:var(--nav-color);
+        background:var(--nav-color);
         }
     p {
-    text-indent: 30px;
+        text-indent: 30px;
 }
     nav li{
             display:inline-block;
@@ -120,21 +57,62 @@
 	.hide {display: none;}  
 	img {display: block; margin-left: auto; margin-right: auto;}
 </style>
-
 </head>  
-
 <body onload="titleChange()">    
 <header>            
 	<button onclick="darkMode()" type="button">Change Theme</button>
+    <script>  
+	var isOn = localStorage.getItem('darkMode') === 'true';	//Kiểm tra trong local có tồn tại giá trị theme không -> không có trả false
+	function darkMode() {  //hàm thay đổi theme dark hoặc light
+	  document.documentElement.setAttribute('data-theme', ['dark', 'light'][+isOn]);
+	  isOn = !isOn;
+	  localStorage.setItem('darkMode', isOn); // Lưu giá trị vào localStorage
+	}
+	// Kiểm tra giá trị đã lưu trong localStorage cho mỗi lần reload lại trang
+	if (isOn) {
+	  document.documentElement.setAttribute('data-theme', 'dark');
+	}
+  </script>
 	<div id="digital-clock" style= "font-size:20px; float: right;"></div>
+    <script> // hàm hiển thị ngày giờ hiện tại khi truy cập website
+	function getDateTime() {
+        var now     = new Date(); 
+        var year    = now.getFullYear();
+        var month   = now.getMonth()+1; 
+        var day     = now.getDate();
+        var hour    = now.getHours();
+        var minute  = now.getMinutes();
+        var second  = now.getSeconds(); 
+        if(month.toString().length == 1) {
+             month = '0'+month;
+        }
+        if(day.toString().length == 1) {
+             day = '0'+day;
+        }   
+        if(hour.toString().length == 1) {
+             hour = '0'+hour;
+        }
+        if(minute.toString().length == 1) {
+             minute = '0'+minute;
+        }
+        if(second.toString().length == 1) {
+             second = '0'+second;
+        }   
+        var dateTime = year+'/'+month+'/'+day+' '+hour+':'+minute+':'+second;   
+         return dateTime;
+    }   
+    setInterval(function(){
+        currentTime = getDateTime();
+        document.getElementById("digital-clock").innerHTML = currentTime;
+    }, 1000);
+</script>
 </header>
 	<nav style= "text-align: center;">     
- 		<ul>       	<li><a href="#">HOME</a></li>        
+ 		<ul>    <li><a href="#">HOME</a></li>        
 				<li><a href="#">OUR TEAM</a></li>       
 				<li><a href="#">PROJECTS</a></li>        
 				<li><a href="#">CONTACT</a></li>      
 		</ul> 
-
 	</nav>
 	<form> 
 		<input type="text" id="userName" name="user_name" placeholder="Enter your name!">         
@@ -147,7 +125,7 @@
     			const inputElement = document.getElementById('userName');   //Trỏ tới input
    				const inputValue = inputElement.value;  //Lấy giá trị input sau khi submit
 
-    			titleElement.textContent = defaultTitle + ":" + inputValue;   //Gán text của head HTML bằng đoạn chuỗi tiêu đề mặc định + với giá trị được nhập
+    			titleElement.textContent = defaultTitle + "," + inputValue;   //Gán text của head HTML bằng đoạn chuỗi tiêu đề mặc định + với giá trị được nhập
 				localStorage.setItem('savedValue', inputValue); // Lưu giá trị vào localStorage
 				inputElement.value = ""; // Xoá giá trị vừa nhập
 
@@ -155,7 +133,7 @@
 			// Kiểm tra nếu có giá trị được lưu trong localStorage cho mỗi lần reload trang
   			const savedValue = localStorage.getItem('savedValue');
   			if (savedValue) {
-    			titleElement.textContent = defaultTitle + ":" + savedValue;
+    			titleElement.textContent = defaultTitle + "," + savedValue;
   			}
 		</script>
 	</form>
@@ -193,7 +171,15 @@
     		<button type="button" onclick="showOne('pt')"> Palm Tree </button>
     		<button type="button" onclick="showOne('man')"> Mangroves </button>
   	</div>
-
+	<script> // hàm xử lý tác vụ khi ấn vào button hiển thị div (gồm thẻ "img" và "p")
+	function showOne(id) {
+		document.querySelectorAll(".hide").forEach(function (el) {
+		el.style = "display: none;";
+		});
+		document.querySelector(".show[id='jgtshow']").style = "display: none;";
+		document.querySelector(".hide[id='" + id + "']").style = "display: block;";
+};
+</script>
  <article>        
 	<h2>Five Trees Perfect for a Japanese Style Garden</h2>        
 		<p>	Trees are an excellent way of adding shade to your backyard and giving plants that don’t require as much sunlight some protection from the sun’s rays, but you will want to pick trees that fit with your Japanese garden. Quince fruit trees, cherry blossoms, Japanese maples, Black Pines, and Styrax trees are great choices. </p>        
